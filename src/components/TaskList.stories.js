@@ -1,14 +1,23 @@
 import React from 'react';
 
-import TaskList from './TaskList';
+// import TaskList from './TaskList';
+import { PureTaskList } from './TaskList';
+
 import { taskData, actionsData } from './Task.stories';
 
 export default {
-  component: TaskList,
-  title: 'TaskList',
-  decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
-  excludeStories: /.*Data$/,
+    component: PureTaskList,
+    title: 'TaskList',
+    decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
+    excludeStories: /.*Data$/,
 };
+
+// export default {
+//   component: TaskList,
+//   title: 'TaskList',
+//   decorators: [story => <div style={{ padding: '3rem' }}>{story()}</div>],
+//   excludeStories: /.*Data$/,
+// };
 
 // Decorators are a way to provide arbitrary wrappers to 
 // stories. In this case we’re using a decorator `key` on 
@@ -30,10 +39,15 @@ export const withPinnedTasksData = [
   { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
 ];
 
-export const Default = () => <TaskList tasks={defaultTasksData} {...actionsData} />;
+export const Default = () => <PureTaskList tasks={defaultTasksData} {...actionsData} />;
 
-export const WithPinnedTasks = () => <TaskList tasks={withPinnedTasksData} {...actionsData} />;
+export const WithPinnedTasks = () => <PureTaskList tasks={withPinnedTasksData} {...actionsData} />;
 
-export const Loading = () => <TaskList loading tasks={[]} {...actionsData} />;
+export const Loading = () => <PureTaskList loading tasks={[]} {...actionsData} />;
 
-export const Empty = () => <TaskList tasks={[]} {...actionsData} />;
+export const Empty = () => <PureTaskList tasks={[]} {...actionsData} />;
+
+// export const Default = () => <TaskList tasks={defaultTasksData} {...actionsData} />;
+// export const WithPinnedTasks = () => <TaskList tasks={withPinnedTasksData} {...actionsData} />;
+// export const Loading = () => <TaskList loading tasks={[]} {...actionsData} />;
+// export const Empty = () => <TaskList tasks={[]} {...actionsData} />;
